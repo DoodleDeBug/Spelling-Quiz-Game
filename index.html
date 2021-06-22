@@ -14,20 +14,82 @@
 <body>
 
     <div class="container-lg my-5">
-        <div class="row justify-content-center text-center">
+        <div class="justify-content-center text-center">
             <h1>
                 <div class="display-2">Spelling Test</div>
             </h1>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="co-md-5 text-center text-md-end">
-                <button id="new" class="btn btn-lg btn-primary">New Spellings</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
+                    New Spellings
+                </button>
             </div>
         </div>
         <div class="card-container my-3 p-3">
             hello
         </div>
     </div>
+
+    <div id="modal" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New Spellings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter your spellings for this week below:</p>
+                    <form>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-1"
+                                    placeholder="Spelling 1">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-2"
+                                    placeholder="Spelling 2">
+                            </div>
+                            <div class="row">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-3"
+                                    placeholder="Spelling 3">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-4"
+                                    placeholder="Spelling 4">
+                            </div>
+                            <div class="row">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-5"
+                                    placeholder="Spelling 5">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-6"
+                                    placeholder="Spelling 6">
+                            </div>
+                            <div class="row">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-7"
+                                    placeholder="Spelling 7">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-8"
+                                    placeholder="Spelling 8">
+                            </div>
+                            <div class="row">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-9"
+                                    placeholder="Spelling 9">
+                                <input type="text" class="form-control col mb-2 mx-1" id="spelling-10"
+                                    placeholder="Spelling 10">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="co-md-5 text-end my-2">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+</button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="co-md-5 text-center mb-1">
+                                <button type="submit" class="btn btn-lg btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
