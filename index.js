@@ -42,7 +42,38 @@ render();
 
 function render() {
   spellings.forEach((week) => {
-    console.log(`Week ${spellings.indexOf(week) + 1}`);
+    let index = spellings.indexOf(week);
+    console.log(index);
+
+    const div1 = document.createElement("div");
+    div1.classList.add("col-8", "col-lg-4", "col-xl-3");
+
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body", "text-center", "py-4");
+
+    const title = document.createElement("h4");
+    title.classList.add("card-title");
+    title.innerText = `Week ${spellings.indexOf(week) + 1}`;
+
+    const list = document.createElement("p");
+    list.classList.add("card-text");
+    list.innerText = spellings[index];
+    console.log({ spelling: spellings[index] });
+
+    const link = document.createElement("a");
+    link.setAttribute("href", "#");
+    link.classList.add("btn", "btn-outline-primary", "btn-lg", "mt-3");
+    link.innerText = "Start Test";
+
+    container.appendChild(div1);
+    div1.appendChild(card);
+    card.appendChild(cardBody);
+    cardBody.appendChild(title);
+    cardBody.appendChild(list);
+    cardBody.appendChild(link);
   });
 }
 
