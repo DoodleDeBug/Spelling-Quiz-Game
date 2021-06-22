@@ -38,7 +38,13 @@ const spellingList = document.querySelectorAll("input");
 //add event listeners
 form.addEventListener("submit", addSpellings);
 
-function render() {}
+render();
+
+function render() {
+  spellings.forEach((week) => {
+    console.log(`Week ${spellings.indexOf(week) + 1}`);
+  });
+}
 
 function addSpellings(e) {
   e.preventDefault(); // prevent refresh of page on form submit
