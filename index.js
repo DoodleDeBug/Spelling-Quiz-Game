@@ -47,7 +47,7 @@ const spelling = (() => {
   function render() {
     spellings.forEach((week) => {
       let index = spellings.indexOf(week);
-      console.log(index);
+      // console.log(index);
 
       const div1 = document.createElement("div");
       div1.classList.add("col-8", "col-lg-4", "col-xl-3");
@@ -93,22 +93,18 @@ const spelling = (() => {
   function addSpellings(e) {
     e.preventDefault(); // prevent refresh of page on form submit
 
-    // let i = 1; // start week counter off
-
     window["week" + week] = []; // empty object for variable week name
 
     spellingInput.forEach((spelling) => {
       window["week" + week].push(spelling.value);
-      // i++;
     });
 
-    console.log(window["week" + week]);
     spellings.push(window["week" + week]); //push week array to spelling array
 
-    console.log(spellings);
     clearForm();
     clearDisplay();
     render();
+
     week++;
   }
 
