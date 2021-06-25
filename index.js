@@ -1,33 +1,59 @@
 // const spelling = (() { //initialize iffe
 
 //variables
-
 let week = 1;
+// let spellings = [
+//   {
+//     1: "Dog",
+//     2: "Button",
+//     3: "Button",
+//     4: "Button",
+//     5: "Button",
+//     6: "Button",
+//     7: "Button",
+//     8: "Button",
+//     9: "Button",
+//     10: "Carrot",
+//   },
+//   {
+//     1: "Dog",
+//     2: "Button",
+//     3: "Button",
+//     4: "Button",
+//     5: "Button",
+//     6: "Button",
+//     7: "Button",
+//     8: "Button",
+//     9: "Button",
+//     10: "Whole",
+//   },
+// ];
+
 let spellings = [
-  {
-    1: "Dog",
-    2: "Button",
-    3: "Button",
-    4: "Button",
-    5: "Button",
-    6: "Button",
-    7: "Button",
-    8: "Button",
-    9: "Button",
-    10: "Carrot",
-  },
-  {
-    1: "Dog",
-    2: "Button",
-    3: "Button",
-    4: "Button",
-    5: "Button",
-    6: "Button",
-    7: "Button",
-    8: "Button",
-    9: "Button",
-    10: "Whole",
-  },
+  [
+    "dog",
+    "button",
+    "carrot",
+    "dog",
+    "button",
+    "carrot",
+    "dog",
+    "button",
+    "carrot",
+    "Whole",
+  ],
+  [
+    "dog",
+    "button",
+    "carrot",
+    "dog",
+    "button",
+    "carrot",
+    "dog",
+    "button",
+    "carrot",
+    "Fish",
+  ],
 ];
 
 // cache DOM
@@ -37,6 +63,9 @@ const spellingList = document.querySelectorAll("input");
 
 //add event listeners
 form.addEventListener("submit", addSpellings);
+
+const capitalize = ([firstLetter, ...restOfWord]) =>
+  firstLetter.toUpperCase() + restOfWord.join("");
 
 render();
 
@@ -49,7 +78,7 @@ function render() {
     div1.classList.add("col-8", "col-lg-4", "col-xl-3");
 
     const card = document.createElement("div");
-    card.classList.add("card");
+    card.classList.add("card", "my-2");
 
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body", "text-center", "py-4");
@@ -58,10 +87,17 @@ function render() {
     title.classList.add("card-title");
     title.innerText = `Week ${spellings.indexOf(week) + 1}`;
 
-    const list = document.createElement("p");
-    list.classList.add("card-text");
-    list.innerText = spellings[index];
-    console.log({ spelling: spellings[index] });
+    const content = document.createElement("div");
+    content.classList.add("card-text");
+
+    const list = document.createElement("ul");
+
+    spellings[index].forEach((spelling) => {
+      let formattedSpelling = capitalize(spelling.toLowerCase());
+      const li = document.createElement("li");
+      li.innerText = formattedSpelling;
+      list.appendChild(li);
+    });
 
     const link = document.createElement("a");
     link.setAttribute("href", "#");
@@ -72,7 +108,8 @@ function render() {
     div1.appendChild(card);
     card.appendChild(cardBody);
     cardBody.appendChild(title);
-    cardBody.appendChild(list);
+    cardBody.appendChild(content);
+    content.appendChild(list);
     cardBody.appendChild(link);
   });
 }
