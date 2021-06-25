@@ -84,13 +84,14 @@ function render() {
     cardBody.classList.add("card-body", "text-center", "py-4");
 
     const title = document.createElement("h4");
-    title.classList.add("card-title");
+    title.classList.add("card-title", "text-primary", "display-6");
     title.innerText = `Week ${spellings.indexOf(week) + 1}`;
 
     const content = document.createElement("div");
     content.classList.add("card-text");
 
     const list = document.createElement("ul");
+    list.classList.add("text-center", "p-2", "text-dark");
 
     spellings[index].forEach((spelling) => {
       let formattedSpelling = capitalize(spelling.toLowerCase());
@@ -101,7 +102,7 @@ function render() {
 
     const link = document.createElement("a");
     link.setAttribute("href", "#");
-    link.classList.add("btn", "btn-outline-primary", "btn-lg", "mt-3");
+    link.classList.add("btn", "btn-outline-primary");
     link.innerText = "Start Test";
 
     container.appendChild(div1);
