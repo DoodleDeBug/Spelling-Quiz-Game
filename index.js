@@ -1,36 +1,6 @@
 const spelling = (() => {
   //initialize iffe
 
-  //variables
-  let week = 1;
-
-  let spellings = [
-    [
-      "dog",
-      "button",
-      "carrot",
-      "dog",
-      "button",
-      "carrot",
-      "dog",
-      "button",
-      "carrot",
-      "Whole",
-    ],
-    [
-      "dog",
-      "button",
-      "carrot",
-      "dog",
-      "button",
-      "carrot",
-      "dog",
-      "button",
-      "carrot",
-      "Fish",
-    ],
-  ];
-
   // cache DOM
   const container = document.getElementById("container");
   const form = document.querySelector("form");
@@ -42,7 +12,18 @@ const spelling = (() => {
   const capitalize = ([firstLetter, ...restOfWord]) =>
     firstLetter.toUpperCase() + restOfWord.join("");
 
-  render();
+  restoreLocal();
+
+  // local storage
+  function restoreLocal() {
+    spellings = JSON.parse(localStorage.getItem("spellings"));
+    if (spellings === null) spellings = [];
+    render();
+  }
+
+  function saveLocal() {
+    localStorage.setItem("spellings", JSON.stringify(spellings));
+  }
 
   function render() {
     spellings.forEach((week) => {
@@ -93,19 +74,18 @@ const spelling = (() => {
   function addSpellings(e) {
     e.preventDefault(); // prevent refresh of page on form submit
 
-    window["week" + week] = []; // empty object for variable week name
+    let week = []; // empty object for variable week name
 
     spellingInput.forEach((spelling) => {
-      window["week" + week].push(spelling.value);
+      week.push(spelling.value);
     });
 
-    spellings.push(window["week" + week]); //push week array to spelling array
+    spellings.push(week); //push week array to spelling array
 
     clearForm();
     clearDisplay();
     render();
-
-    week++;
+    saveLocal();
   }
 
   function clearForm() {
