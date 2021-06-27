@@ -50,7 +50,7 @@ const spelling = (() => {
       // console.log(index);
 
       const div1 = document.createElement("div");
-      div1.classList.add("col-8", "col-lg-4", "col-xl-3");
+      div1.classList.add("col-sm-10", "col-md-6", "col-lg-4", "col-xl-3");
 
       const card = document.createElement("div");
       card.classList.add("card", "my-2");
