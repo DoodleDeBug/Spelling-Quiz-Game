@@ -57,7 +57,7 @@ const spelling = (() => {
       });
 
       const link = document.createElement("a");
-      link.setAttribute("href", "#");
+      link.setAttribute("href", "./text.html");
       link.classList.add("btn", "btn-outline-primary");
       link.innerText = "Start Test";
 
