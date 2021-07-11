@@ -12,7 +12,9 @@ h1 {
 }
 
 .speaker:focus,
-.speaker:active {
+.speaker:active,
+.back:focus,
+.back:active {
   box-shadow: none !important;
   outline: 0px !important;
 }
