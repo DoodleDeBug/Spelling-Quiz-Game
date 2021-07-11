@@ -58,8 +58,16 @@ const spelling = (() => {
 
       const link = document.createElement("a");
       link.setAttribute("href", "./test.html");
-      link.classList.add("btn", "btn-outline-primary");
+      link.classList.add("btn", "btn-outline-primary", "test");
       link.innerText = "Start Test";
+
+      link.addEventListener("click", () => {
+        localStorage.setItem(
+          "currentTestWeek",
+          `${spellings.indexOf(week) + 1}`
+        );
+        localStorage.setItem("currentTestSpellings", spellings[index]);
+      });
 
       container.appendChild(div1);
       div1.appendChild(card);
