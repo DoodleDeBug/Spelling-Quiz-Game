@@ -35,11 +35,14 @@ const test = (() => {
   function newTurn(e) {
     if (e) {
       e.preventDefault();
-    } else if (qNum == 10) {
+    }
+
+    if (qNum == 10) {
       alert("game over");
       //process answers
       // switch to results page
     }
+
     answers.push(answerField.value.toLowerCase());
     answerField.value = "";
     console.log(answers.slice(1));
@@ -53,12 +56,12 @@ const test = (() => {
   }
 
   function speak() {
-    toggleSound();
-    setTimeout(toggleSound, 1000);
-
     let spelling = new SpeechSynthesisUtterance();
     spelling.text = spellings[qNum - 1];
     window.speechSynthesis.speak(spelling);
+
+    toggleSound();
+    setTimeout(toggleSound, 1000);
   }
 
   function toggleSound() {
