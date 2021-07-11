@@ -35,12 +35,11 @@ const test = (() => {
   function newTurn(e) {
     if (e) {
       e.preventDefault();
-    }
-
-    if (qNum == 10) {
+    } else if (qNum == 10) {
       alert("game over");
+      //process answers
+      // switch to results page
     }
-
     answers.push(answerField.value.toLowerCase());
     answerField.value = "";
     console.log(answers.slice(1));
