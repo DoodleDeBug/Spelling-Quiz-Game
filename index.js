@@ -1,6 +1,9 @@
 const spelling = (() => {
   //initialize iffe
 
+  //variables
+  let spellings;
+
   // cache DOM
   const container = document.getElementById("container");
   const form = document.querySelector("form");

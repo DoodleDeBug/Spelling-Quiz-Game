@@ -14,16 +14,13 @@ const test = (() => {
   let formattedSpellings = [];
   spellings.forEach((word) => formattedSpellings.push(word.toLowerCase()));
 
-  //   console.log(weekNum);
-  console.log(spellings);
-  console.log(formattedSpellings);
-
   //variables
   let qNum = 0;
   let answers = [];
 
   // add event listeners
   form.addEventListener("submit", newTurn);
+  speakerBtn.addEventListener("click", speak);
 
   // display
   weekDisplay.innerText = `Week ${weekNum}`;
@@ -50,9 +47,6 @@ const test = (() => {
     qNum++;
     qNumDisplay.innerText = `Q${qNum}.`;
     console.log(`turn ${qNum}`);
-
-    // add event listeners
-    speakerBtn.addEventListener("click", speak);
   }
 
   function speak() {
