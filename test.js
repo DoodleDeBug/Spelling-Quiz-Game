@@ -36,6 +36,7 @@ const test = (() => {
 
     if (qNum == 10) {
       alert("game over");
+      window.location = "./results.html";
       //process answers
       // switch to results page
     }
