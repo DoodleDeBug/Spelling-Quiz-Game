@@ -37,14 +37,13 @@ const test = (() => {
 
     answers.push(answerField.value.toLowerCase());
     answerField.value = "";
-    console.log(answers.slice(1));
 
     if (qNum == 10) {
       alert("game over");
       let results = answers.slice(1);
+
       //process answers
       mark(results);
-
       // switch to results page
       window.location = "./results.html";
     } else {
@@ -63,7 +62,7 @@ const test = (() => {
         : (status = "incorrect");
       markedAnswers.push([results[i], status]);
     }
-    console.table(markedAnswers);
+
     localStorage.setItem("markedAnswers", JSON.stringify(markedAnswers));
   }
   function speak() {
