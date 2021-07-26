@@ -13,6 +13,7 @@ const test = (() => {
   //format spellings
   let formattedSpellings = [];
   spellings.forEach((word) => formattedSpellings.push(word.toLowerCase()));
+  localStorage.setItem("currentSpellings", formattedSpellings);
 
   //variables
   let qNum = 0;
@@ -45,7 +46,7 @@ const test = (() => {
       mark(results);
 
       // switch to results page
-      // window.location = "./results.html";
+      window.location = "./results.html";
     } else {
       qNum++;
       qNumDisplay.innerText = `Q${qNum}.`;
@@ -62,7 +63,8 @@ const test = (() => {
         : (status = "incorrect");
       markedAnswers.push([results[i], status]);
     }
-    console.log(markedAnswers);
+    console.table(markedAnswers);
+    localStorage.setItem("markedAnswers", JSON.stringify(markedAnswers));
   }
   function speak() {
     let spelling = new SpeechSynthesisUtterance();
