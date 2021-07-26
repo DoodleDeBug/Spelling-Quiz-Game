@@ -6,9 +6,11 @@ const test = (() => {
   //cacheDOM
   const firstCol = document.querySelector(".first");
   const secondCol = document.querySelector(".second");
+  const display = document.querySelector(".display");
   //variables
 
   let qNum = 1;
+  let score = 0;
 
   render();
 
@@ -29,11 +31,14 @@ const test = (() => {
       if (ans[1] == "correct") {
         mark.setAttribute("src", "./tick.png");
         mark.setAttribute("alt", "tick");
+
+        score++;
       } else {
         mark.setAttribute("src", "./cross.png");
         mark.setAttribute("alt", "cross");
 
         const correctSpelling = document.createElement("p");
+        correctSpelling.classList.add("text-primary");
         correctSpelling.innerText = `Correct answer: ${
           spellings[markedAns.indexOf(ans)]
         }`;
@@ -41,5 +46,7 @@ const test = (() => {
       }
       qNum < 7 ? firstCol.appendChild(div) : secondCol.appendChild(div);
     });
+
+    display.innerText = `You scored ${score}/10`;
   }
 })();

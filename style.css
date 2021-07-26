@@ -18,3 +18,24 @@ h1 {
   box-shadow: none !important;
   outline: 0px !important;
 }
+
+img {
+  height: 50px;
+  margin-left: 1rem;
+}
+
+.resultsContainer {
+  font-size: 25px;
+}
+
+.resultsContainer p {
+  font-size: 20px;
+}
+
+.first,
+.second {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
