@@ -34,22 +34,36 @@ const test = (() => {
       e.preventDefault();
     }
 
-    if (qNum == 10) {
-      alert("game over");
-      window.location = "./results.html";
-      //process answers
-      // switch to results page
-    }
-
     answers.push(answerField.value.toLowerCase());
     answerField.value = "";
     console.log(answers.slice(1));
 
-    qNum++;
-    qNumDisplay.innerText = `Q${qNum}.`;
-    console.log(`turn ${qNum}`);
+    if (qNum == 10) {
+      alert("game over");
+      let results = answers.slice(1);
+      //process answers
+      mark(results);
+
+      // switch to results page
+      // window.location = "./results.html";
+    } else {
+      qNum++;
+      qNumDisplay.innerText = `Q${qNum}.`;
+      speak();
+    }
   }
 
+  function mark(results) {
+    let markedAnswers = [];
+    let status;
+    for (let i = 0; i < results.length; i++) {
+      results[i] === formattedSpellings[i]
+        ? (status = "correct")
+        : (status = "incorrect");
+      markedAnswers.push([results[i], status]);
+    }
+    console.log(markedAnswers);
+  }
   function speak() {
     let spelling = new SpeechSynthesisUtterance();
     spelling.text = spellings[qNum - 1];
